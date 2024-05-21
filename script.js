@@ -37,10 +37,19 @@ const createGrid = (size) => {
       verticalDiv.appendChild(horizontalDiv);
       //Add event listener to check if mouse hovers over a cell
       horizontalDiv.addEventListener("mouseenter", () => {
-        horizontalDiv.style.backgroundColor = "blue";
+        horizontalDiv.style.backgroundColor = getRandomRgb();
       });
     }
   }
+};
+
+//generates random colors to fill squares on the sketch pad
+const getRandomRgb = () => {
+  var num = Math.round(0xffffff * Math.random());
+  var r = num >> 16;
+  var g = (num >> 8) & 255;
+  var b = num & 255;
+  return "rgb(" + r + ", " + g + ", " + b + ")";
 };
 
 //Startup grid
